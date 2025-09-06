@@ -1,0 +1,180 @@
+:root {
+  --background-color: #121212;
+  --surface-color: #1e1e1e;
+  --primary-color: #bb86fc;
+  --primary-variant-color: #3700b3;
+  --secondary-color: #03dac6;
+  --on-background-color: #e0e0e0;
+  --on-surface-color: #ffffff;
+  --error-color: #cf6679;
+  --border-color: #333333;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--on-background-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--on-surface-color);
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.1rem;
+  color: var(--on-background-color);
+  opacity: 0.8;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.upload-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.upload-area {
+  flex: 1;
+}
+
+.upload-area h2 {
+  color: var(--on-surface-color);
+  margin-bottom: 1rem;
+}
+
+.upload-box {
+  background-color: var(--surface-color);
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 300px;
+  transition: border-color 0.3s, background-color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-box:hover {
+  border-color: var(--primary-color);
+  background-color: #2a2a2a;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #888;
+}
+
+.placeholder svg {
+  color: #888;
+}
+
+.image-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: none;
+}
+
+#try-on-button {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin-bottom: 2rem;
+}
+
+#try-on-button:hover:not(:disabled) {
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+#try-on-button:disabled {
+  background-color: var(--border-color);
+  color: #888;
+  cursor: not-allowed;
+}
+
+#result-container {
+  background-color: var(--surface-color);
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#result-container .image-preview {
+  object-fit: contain;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.loader {
+  border: 8px solid #f3f3f3; /* Light grey */
+  border-top: 8px solid var(--primary-color); /* Blue */
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  display: none; /* Hidden by default */
+  position: absolute;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.error-message {
+    color: var(--error-color);
+    display: none; /* Hidden by default */
+    padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .upload-container {
+    flex-direction: column;
+  }
+}

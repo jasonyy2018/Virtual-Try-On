@@ -1,0 +1,6 @@
+{
+  "name": "Virtual Try-On",
+  "description": "Upload an image of a person and an item of clothing to see a virtual try-on.",
+  "requestFramePermissions": [],
+  "prompt": ""
+}
